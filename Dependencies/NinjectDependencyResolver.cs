@@ -7,6 +7,7 @@ using Ninject;
 using System.Web.Mvc;
 using HR_PortalInterfaces;
 using HR_Portal.Repositories.WorkUnit;
+using Logger;
 
 namespace Dependencies
 {
@@ -28,7 +29,10 @@ namespace Dependencies
         }
         private void AddBindings()
         {
-            kernel.Bind<IUnitOfWork>().To<HR_PortalUnitOfWork>();         
+            kernel.Bind<IUnitOfWork>().To<HR_PortalUnitOfWork>();
+            kernel.Bind<ILogger>().To<DebugLogger>();
+            kernel.Bind<ILogger>().To<FileSystemLogger>();
+            kernel.Bind<ILogger>().To<DebugLogger>();
         }
     }
 }

@@ -61,6 +61,10 @@
       <Project>{a607196e-f2c1-41ad-bf7e-ee67ee9fad29}</Project>
       <Name>HR-PortalInterfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{15a326fc-8c66-406e-ba5f-ea8c3c38dd9e}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
