@@ -15,14 +15,14 @@ namespace HR_Portal.Repositories
     {
         private HRContext db;
 
-        public ProjectRepository()
+        public ProjectRepository(HRContext context)
         {
-            db = new HRContext();
+            db = context;
         }
 
         public IEnumerable<Project> GetAll()
         {
-            return db.Projects;
+            return db.Projects.ToList();
         }
 
         public Project Get(int id)

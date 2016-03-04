@@ -28,7 +28,7 @@ namespace HR_Portal.Repositories.WorkUnit
             {
                 if (employeeRepository == null)
                 {
-                    employeeRepository = new EmployeeRepository();
+                    employeeRepository = new EmployeeRepository(db);
                 }
                 return employeeRepository;
             }
@@ -40,7 +40,7 @@ namespace HR_Portal.Repositories.WorkUnit
             {
                 if (projectRepository == null)
                 {
-                   projectRepository = new ProjectRepository();
+                   projectRepository = new ProjectRepository(db);
                 }
                 return projectRepository;
             }
@@ -52,7 +52,7 @@ namespace HR_Portal.Repositories.WorkUnit
             {
                 if (technologieRepository == null)
                 {
-                    technologieRepository = new TechnologyRepository();
+                    technologieRepository = new TechnologyRepository(db);
                 }
                 return technologieRepository;
             }

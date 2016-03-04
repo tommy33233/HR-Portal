@@ -13,14 +13,14 @@ namespace HR_Portal.Repositories
     {
         private HRContext db;
 
-        public CV_Repository()
+        public CV_Repository(HRContext context)
         {
-            db = new HRContext();
+            db = context;
         }
 
         public IEnumerable<CV> GetAll()
         {
-            return db.CVs;
+            return db.CVs.ToList();
         }
 
         public CV Get(int id)

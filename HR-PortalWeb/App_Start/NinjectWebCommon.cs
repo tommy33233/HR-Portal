@@ -12,6 +12,7 @@ namespace HR_PortalWeb.App_Start
     using Ninject.Web.Common;
     using System.Web.Mvc;
     using Dependencies;
+    using Ninject.Modules;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -40,6 +41,7 @@ namespace HR_PortalWeb.App_Start
         /// <returns>The created kernel.</returns>
         private static IKernel CreateKernel()
         {
+           // var modules = new INinjectModule[] { new ServiceModule("HRdb") };
             var kernel = new StandardKernel();
             try
             {

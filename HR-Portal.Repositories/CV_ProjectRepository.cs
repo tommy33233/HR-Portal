@@ -15,12 +15,12 @@ namespace HR_Portal.Repositories
 
         public CV_ProjectRepository()
         {
-            db = new HRContext();
+            this.db = new HRContext();
         }
 
         public IEnumerable<CV_Project> GetAll()
         {
-            return db.CV_Projects;
+            return db.CV_Projects.ToList();
         }
 
         public CV_Project Get(int id)

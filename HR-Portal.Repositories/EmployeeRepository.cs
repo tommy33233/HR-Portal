@@ -15,14 +15,14 @@ namespace HR_Portal.Repositories
     {
         private HRContext db;
 
-        public EmployeeRepository()
+        public EmployeeRepository(HRContext context)
         {
-            db = new HRContext();
+            db = context;
         }
 
         public IEnumerable<Employee> GetAll()
         {
-            return db.Employees;
+            return db.Employees.ToList();
         }
 
         public Employee Get(int id)

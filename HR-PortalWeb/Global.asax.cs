@@ -11,10 +11,10 @@ namespace HR_PortalWeb
     public class MvcApplication : System.Web.HttpApplication
     {
 
-        Logger logger = LogManager.GetCurrentClassLogger();
+        //Logger logger = LogManager.GetCurrentClassLogger();
         protected void Application_Start()
         {
-            logger.Info("start");
+           // logger.Info("start");
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }

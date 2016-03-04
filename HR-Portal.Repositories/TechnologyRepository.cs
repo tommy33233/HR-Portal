@@ -15,14 +15,14 @@ namespace HR_Portal.Repositories
     {
         private HRContext db;
 
-        public TechnologyRepository()
+        public TechnologyRepository(HRContext context)
         {
-            db = new HRContext();
+            db = context;
         }
 
         public IEnumerable<Technology> GetAll()
         {
-            return db.Technologies;
+            return db.Technologies.ToList();
         }
 
         public Technology Get(int id)
