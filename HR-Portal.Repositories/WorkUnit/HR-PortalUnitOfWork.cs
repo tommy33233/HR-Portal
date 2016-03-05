@@ -16,6 +16,9 @@ namespace HR_Portal.Repositories.WorkUnit
         public EmployeeRepository employeeRepository;
         public ProjectRepository projectRepository;
         public TechnologyRepository technologieRepository;
+        public CV_Repository cv_Repository;
+        public CV_ProjectRepository cv_ProjectRepository;
+        public EmployeeProjectRepository employeeProjectsRepository;
 
         public HR_PortalUnitOfWork()
         {
@@ -55,6 +58,19 @@ namespace HR_Portal.Repositories.WorkUnit
                     technologieRepository = new TechnologyRepository(db);
                 }
                 return technologieRepository;
+            }
+        }
+
+        public IRepository<EmployeeProject> EmployeeProjects
+        {
+            get
+            {
+                if (employeeProjectsRepository == null)
+                {
+                    employeeProjectsRepository = new EmployeeProjectRepository(db);
+               
+                }
+                return employeeProjectsRepository;
             }
         }
 

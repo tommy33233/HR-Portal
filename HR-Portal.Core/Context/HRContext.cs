@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HR_Portal.Core;
 
 
 namespace HR_Portal.Repositories.Context
@@ -15,6 +16,8 @@ namespace HR_Portal.Repositories.Context
         public DbSet<Project> Projects { get; set; }
         public DbSet<Technology> Technologies { get; set; }
         public DbSet<CV> CVs { get; set; }
-        public DbSet<CV_Project> CV_Projects { get; set; }       
+        public DbSet<CV_Project> CV_Projects { get; set; }
+        public DbSet<EmployeeProject> EmployeeProjects { get; set; }
+
     }
 }

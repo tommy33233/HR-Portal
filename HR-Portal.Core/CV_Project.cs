@@ -13,5 +13,8 @@ namespace HR_Portal.Core
         public string Description { get; set; }
         public int AmountOfMembers { get; set; }
         public int CV_VersionId { get; set; }
+
+        public CV Cv { get; set; }
+        public ICollection<Technology> Technologies { get; set; }
     }
 }

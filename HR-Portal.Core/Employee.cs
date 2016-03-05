@@ -19,5 +19,16 @@ namespace HR_Portal.Core
         public string EnglishReadingLevel { get; set; }
         public string EnglishWritingLevel { get; set; }
         public string EnglishSpeakingLevel { get; set; }
+        public string EngFirstName { get; set; }
+        public string EnglastName { get; set; }
+        public string EngPosition { get; set; }
+        public string EngEducationInstitution { get; set; }
+        public string EngSpecialization { get; set; }
+
+
+       public ICollection<Technology> Technologies { get; set; }
+       public ICollection<EmployeeProject> EmployeeProjects { get; set; }
+        public ICollection<CV> Cvs { get; set; }
+        
     }
 }

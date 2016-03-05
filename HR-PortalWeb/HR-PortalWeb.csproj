@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -183,6 +187,10 @@
     <ProjectReference Include="..\HR-PortalInterfaces\HR-PortalInterfaces.csproj">
       <Project>{a607196e-f2c1-41ad-bf7e-ee67ee9fad29}</Project>
       <Name>HR-PortalInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HR_Portal.ViewModels\HR_Portal.ViewModels.csproj">
+      <Project>{46c89e9b-aee9-4d99-a53e-1f2d0c889a93}</Project>
+      <Name>HR_Portal.ViewModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\Logger\Logger.csproj">
       <Project>{15a326fc-8c66-406e-ba5f-ea8c3c38dd9e}</Project>

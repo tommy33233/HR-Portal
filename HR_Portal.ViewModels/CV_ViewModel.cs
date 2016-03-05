@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR_Portal.Core
+namespace HR_Portal.ViewModels
 {
-    public class CV
+   public class CV_ViewModel
     {
         public int Id { get; set; }
         public string Author { get; set; }
@@ -14,7 +14,7 @@ namespace HR_Portal.Core
         public int EmployeeId { get; set; }
         public string Name { get; set; }
 
-        public Employee Employee { get; set; }
-        public ICollection<CV_Project> Cv_Projects { get; set; }
+        public EmployeeViewModel Employee { get; set; }
+        public ICollection<CV_ProjectViewModel> Cv_Projects { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using HR_Portal.Core;
 using HR_Portal.Repositories.Context;
+using HR_PortalInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace HR_Portal.Repositories
 {
-   public class CV_ProjectRepository
+   public class CV_ProjectRepository:IRepository<CV_Project>
     {
         private HRContext db;
 
-        public CV_ProjectRepository()
+        public CV_ProjectRepository(HRContext context)
         {
-            this.db = new HRContext();
+            this.db = context;
         }
 
         public IEnumerable<CV_Project> GetAll()
@@ -28,9 +29,9 @@ namespace HR_Portal.Repositories
             return db.CV_Projects.Find(id);
         }
 
-        public void Create(CV cv_Proj)
+        public void Create(CV_Project cv_Proj)
         {
-            db.CVs.Add(cv_Proj);
+            db.CV_Projects.Add(cv_Proj);
         }
 
         public void Delete(int id)

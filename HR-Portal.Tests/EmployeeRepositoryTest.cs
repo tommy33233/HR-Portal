@@ -38,9 +38,10 @@ namespace HR_Portal.Tests.RepositoryTest
         {
             List<Employee> emp = new List<Employee>();
             var resultBeforeCreating = unit.Employees.GetAll();
-            emp.AddRange(resultBeforeCreating);
+            emp.AddRange(resultBeforeCreating);      
+            
             int countBefore = emp.Count;          
-            Employee employee = new Employee() { Id=20, FirstName = "Test", LastName = "1" };
+            Employee employee = new Employee() { FirstName = "Test", LastName = "1" };
             unit.Employees.Create(employee);
             unit.Save();
 
@@ -55,22 +56,38 @@ namespace HR_Portal.Tests.RepositoryTest
 
         [TestMethod]
         public void GetEmployeeByIdTest()
-        {            
-            Employee emp = unit.Employees.Get(3);
+        {
+          
+                  
+            Employee emp = unit.Employees.Get(1);
             Assert.IsNotNull(emp);
             Assert.AreEqual("Test", emp.FirstName);
 
         }
 
         [TestMethod]
+        public void UpdateEmployeeTest()
+        {
+            Employee emp = unit.Employees.Get(2);
+            string name = emp.LastName;
+            emp.LastName = "Updated";
+            unit.Employees.Update(emp);
+            unit.Save();
+
+            emp = unit.Employees.Get(2);
+
+            Assert.AreNotEqual(name, emp.LastName);
+        }
+
+        [TestMethod]
         public void DeleteEmployeeTest()
         {
-            Employee emp = unit.Employees.Get(3);
+            Employee emp = unit.Employees.Get(2);
             Assert.IsNotNull(emp);
             
-           unit.Employees.Delete(3);
+           unit.Employees.Delete(2);
             unit.Save();
-            emp = unit.Employees.Get(3);
+            emp = unit.Employees.Get(2);
             Assert.IsNull(emp);
 
         }

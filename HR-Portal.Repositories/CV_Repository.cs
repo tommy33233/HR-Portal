@@ -1,5 +1,6 @@
 ﻿using HR_Portal.Core;
 using HR_Portal.Repositories.Context;
+using HR_PortalInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace HR_Portal.Repositories
 {
-   public class CV_Repository
+   public class CV_Repository:IRepository<CV>
     {
         private HRContext db;
 
