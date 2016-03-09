@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HR_Portal.Core;
+
 
 
 namespace HR_Portal.Repositories.Context

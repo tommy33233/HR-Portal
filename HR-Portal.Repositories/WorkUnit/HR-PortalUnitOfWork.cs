@@ -74,6 +74,32 @@ namespace HR_Portal.Repositories.WorkUnit
             }
         }
 
+        public IRepository<CV> CVs
+        {
+            get
+            {
+                if (cv_Repository == null)
+                {
+                    cv_Repository = new CV_Repository(db);
+
+                }
+                return cv_Repository;
+            }
+        }
+
+        public IRepository<CV_Project> CV_Projects
+        {
+            get
+            {
+                if (cv_ProjectRepository == null)
+                {
+                    cv_ProjectRepository = new CV_ProjectRepository(db);
+
+                }
+                return cv_ProjectRepository;
+            }
+        }
+
         public void Save()
         {
             db.SaveChanges();

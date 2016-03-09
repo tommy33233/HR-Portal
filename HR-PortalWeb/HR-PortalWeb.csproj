@@ -142,10 +142,22 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CV_Controller.cs" />
+    <Compile Include="Controllers\CV_ProjectController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\EmployeeProjectController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\TechnologyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CV_ProjectViewModel.cs" />
+    <Compile Include="Models\CV_ViewModel.cs" />
+    <Compile Include="Models\EmployeeProjectViewModel.cs" />
+    <Compile Include="Models\EmployeeViewModel.cs" />
+    <Compile Include="Models\ProjectViewModel.cs" />
+    <Compile Include="Models\TechnologyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -173,7 +185,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dependencies\Dependencies.csproj">
@@ -187,10 +198,6 @@
     <ProjectReference Include="..\HR-PortalInterfaces\HR-PortalInterfaces.csproj">
       <Project>{a607196e-f2c1-41ad-bf7e-ee67ee9fad29}</Project>
       <Name>HR-PortalInterfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HR_Portal.ViewModels\HR_Portal.ViewModels.csproj">
-      <Project>{46c89e9b-aee9-4d99-a53e-1f2d0c889a93}</Project>
-      <Name>HR_Portal.ViewModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\Logger\Logger.csproj">
       <Project>{15a326fc-8c66-406e-ba5f-ea8c3c38dd9e}</Project>

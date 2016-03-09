@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\HRContext.cs" />
     <Compile Include="CV_ProjectRepository.cs" />
     <Compile Include="CV_Repository.cs" />
     <Compile Include="EmployeeProjectRepository.cs" />
