@@ -41,17 +41,22 @@ namespace HR_PortalWeb.Controllers
         [HttpPost]
         public void CreateCV([FromBody]CV_ViewModel cv)
         {
-            CreateMapForCV();
-           CV resume = Mapper.Map<CV_ViewModel, CV>(cv);
+            Mapper.CreateMap<CV_ViewModel, CV>();
+            CV resume = Mapper.Map<CV_ViewModel, CV>(cv);
             unit.CVs.Create(resume);
             unit.Save();
         }
 
         [HttpPut]
-        public void EditCV(int id, [FromBody]CV_ViewModel cv)
+        public void EditCV( [FromBody]CV_ViewModel cv)
         {
-            CreateMapForCV();
-            CV resume = Mapper.Map<CV_ViewModel, CV>(cv);
+            CV resume = unit.CVs.Get(cv.Id);
+            resume.Id = cv.Id;
+            resume.Name = cv.Name;
+            resume.Author = cv.Author;
+            resume.DateOfCreation = cv.DateOfCreation;
+            resume.EmployeeId = cv.EmployeeId;
+           
             unit.CVs.Update(resume);
             unit.Save();
         }

@@ -5,6 +5,8 @@ using HR_PortalWeb.Controllers;
 using Moq;
 using HR_Portal.Core;
 using System.Collections.Generic;
+using HR_Portal.ViewModels;
+
 
 namespace HR_Portal.Tests.WebApiControllersTests
 {
@@ -27,26 +29,43 @@ namespace HR_Portal.Tests.WebApiControllersTests
 
             unit.Setup(x => x.Employees.GetAll()).Returns(new List<Employee>());
             var indexResult = controller.GetEmployees();
+          
 
             Assert.IsNotNull(indexResult);
+            
         }
 
+        [TestMethod]
         public void GetEmployeeByIdTest()
         {
             unit.Setup(x => x.Employees.Get(1)).Returns(new Employee());
 
             var result = controller.GetEmployee(1);
 
-            Assert.IsNotNull(result);
+            Assert.IsNotNull(result);          
         }
 
-        public void UpdateEmployeeTest()
+        [TestMethod]
+        public void CreateEmployeeApiTest()
         {
-          /*  unit.Setup(x => x.Employees.Get(1)).Returns(new Employee());
-            Employee emp = new Employee { FirstName = "Test", LastName = "Test" };
-            unit.Setup(x => x.Employees.Create(emp));
-            var result = controller.CreateEmployee(emp);
-            */
+          /* 
+            unit.Setup(x => x.Employees.Create(new Employee())).Verifiable();
+            var employee = new EmployeeViewModel() { FirstName = "TestEmployee" };
+            controller.CreateEmployee(employee);
+            unit.Verify();  
+          */               
+        }
+
+        [TestMethod]
+        public void UpdateEmployeeApiTest()
+        {
+                    
+        }
+
+        [TestMethod]
+        public void DeleteEmployeeApiTest()
+        {
+          
         }
     }
 }

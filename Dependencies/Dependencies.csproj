@@ -54,9 +54,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HR-Portal.Repositories\HR-Portal.Repositories.csproj">
+    <ProjectReference Include="..\HR-Portal.Repositories\HR-Portal.DataAccess.csproj">
       <Project>{047dfb11-5d01-4020-8f61-ad495d7f1c43}</Project>
-      <Name>HR-Portal.Repositories</Name>
+      <Name>HR-Portal.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\HR-PortalInterfaces\HR-PortalInterfaces.csproj">
       <Project>{a607196e-f2c1-41ad-bf7e-ee67ee9fad29}</Project>

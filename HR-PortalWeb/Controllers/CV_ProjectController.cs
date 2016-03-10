@@ -41,17 +41,21 @@ namespace HR_PortalWeb.Controllers
         [HttpPost]
         public void CreateCV_Project([FromBody]CV_ProjectViewModel cv_Proj)
         {
-            CreateMapForCV_Project();
+            Mapper.CreateMap<CV_ProjectViewModel, CV_Project>();
             CV_Project cv_Project = Mapper.Map<CV_ProjectViewModel, CV_Project>(cv_Proj);
             unit.CV_Projects.Create(cv_Project);
             unit.Save();
         }
 
         [HttpPut]
-        public void EditCV_Project(int id, [FromBody]CV_ProjectViewModel cv_Proj)
+        public void EditCV_Project( [FromBody]CV_ProjectViewModel cv_Proj)
         {
-            CreateMapForCV_Project();
-            CV_Project cv_Project = Mapper.Map<CV_ProjectViewModel, CV_Project>(cv_Proj);
+            CV_Project cv_Project = unit.CV_Projects.Get(cv_Proj.Id);
+            cv_Project.Id = cv_Proj.Id;
+            cv_Project.Period = cv_Proj.Period;
+            cv_Project.Description = cv_Proj.Description;
+            cv_Project.AmountOfMembers = cv_Proj.AmountOfMembers;
+            cv_Project.CV_VersionId = cv_Proj.CV_VersionId;           
             unit.CV_Projects.Update(cv_Project);
             unit.Save();
         }

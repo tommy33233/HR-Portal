@@ -1,4 +1,5 @@
 ﻿using HR_Portal.Core;
+using HR_Portal.Repositories;
 using HR_Portal.Repositories.Context;
 using HR_PortalInterfaces;
 using System;
@@ -7,7 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR_Portal.Repositories.WorkUnit
+
+namespace HR_Portal.DataAccess.WorkUnit
 {
    public class HR_PortalUnitOfWork:IUnitOfWork
     {

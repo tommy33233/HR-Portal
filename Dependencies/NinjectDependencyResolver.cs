@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using Ninject;
 using System.Web.Mvc;
 using HR_PortalInterfaces;
-using HR_Portal.Repositories.WorkUnit;
 using Logger;
+using HR_Portal.DataAccess.WorkUnit;
 
 namespace Dependencies
 {

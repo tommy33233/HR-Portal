@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interfaces", "Interfaces", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR-PortalInterfaces", "HR-PortalInterfaces\HR-PortalInterfaces.csproj", "{A607196E-F2C1-41AD-BF7E-EE67EE9FAD29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR-Portal.Repositories", "HR-Portal.Repositories\HR-Portal.Repositories.csproj", "{047DFB11-5D01-4020-8F61-AD495D7F1C43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR-Portal.DataAccess", "HR-Portal.Repositories\HR-Portal.DataAccess.csproj", "{047DFB11-5D01-4020-8F61-AD495D7F1C43}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Util", "Util", "{9A4B0134-8C5E-4CC8-9E17-C8ACA02F97A0}"
 EndProject

@@ -50,10 +50,15 @@ namespace HR_PortalWeb.Controllers
         }
 
         [HttpPut]
-        public void EditTEchnology(int id, [FromBody]TechnologyViewModel tech)
+        public void EditTEchnology( [FromBody]TechnologyViewModel tech)
         {
-            CreateMapForTechnology();
-            Technology technology = Mapper.Map<TechnologyViewModel, Technology>(tech);
+         
+            Technology technology =unit.Technologies.Get(tech.Id);
+            technology.Id = tech.Id;
+            technology.Name = tech.Name;
+            technology.Version = tech.Version;
+            technology.YearOfCreation = tech.YearOfCreation;
+          
             unit.Technologies.Update(technology);
             unit.Save();
         }

@@ -43,17 +43,34 @@ namespace HR_PortalWeb.Controllers
         [HttpPost]
         public void CreateEmployee([FromBody]EmployeeViewModel emp)
         {
-            CreateMapForEmployee();
+            Mapper.CreateMap<EmployeeViewModel, Employee>();
             Employee employee = Mapper.Map<EmployeeViewModel, Employee>(emp);
             unit.Employees.Create(employee);
             unit.Save();           
         }
 
         [HttpPut]
-        public void EditEmployee(int id, [FromBody]EmployeeViewModel emp)
+        public void EditEmployee( [FromBody]EmployeeViewModel emp)
         {
-            CreateMapForEmployee();
-            Employee employee= Mapper.Map<EmployeeViewModel, Employee>(emp);
+
+            Employee employee = unit.Employees.Get(emp.Id);
+            employee.Id = emp.Id;
+            employee.LastName = emp.LastName;
+            employee.FirstName = emp.FirstName;
+            employee.DateOfBirth = emp.DateOfBirth;
+            employee.EducationInstitution = emp.EducationInstitution;
+            employee.EngEducationInstitution = emp.EngEducationInstitution;
+            employee.EngFirstName = emp.EngFirstName;
+            employee.EnglastName = emp.EnglastName;
+            employee.EnglishReadingLevel = emp.EnglishReadingLevel;
+            employee.EnglishSpeakingLevel = emp.EnglishSpeakingLevel;
+            employee.EnglishWritingLevel = emp.EnglishWritingLevel;
+            employee.EngPosition = emp.EngPosition;
+            employee.EngSpecialization = emp.EngSpecialization;
+            employee.Position = emp.Position;
+            employee.Specialization = emp.Specialization;
+            employee.YearOfGraduation = emp.YearOfGraduation;
+
             unit.Employees.Update(employee);
             unit.Save();
         }

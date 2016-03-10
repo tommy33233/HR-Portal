@@ -5,7 +5,7 @@ using Moq;
 using System.Collections.Generic;
 using HR_Portal.Core;
 using HR_PortalWeb;
-using HR_Portal.Repositories.WorkUnit;
+using HR_Portal.DataAccess.WorkUnit;
 
 namespace HR_Portal.Tests.RepositoryTest
 {

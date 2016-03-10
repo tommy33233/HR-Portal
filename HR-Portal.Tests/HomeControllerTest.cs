@@ -29,7 +29,6 @@ namespace HR_Portal.Tests
         {            
             unit.Setup(x => x.Employees.GetAll()).Returns(new List<Employee>());
             var indexResult = controller.Index() as ViewResult;
-
             Assert.IsNotNull(indexResult);
         }
 

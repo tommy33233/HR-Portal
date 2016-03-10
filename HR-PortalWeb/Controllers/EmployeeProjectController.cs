@@ -44,7 +44,7 @@ namespace HR_PortalWeb.Controllers
         [HttpPost]
         public void CreateEmployeeProject([FromBody]EmployeeProjectViewModel emp)
         {
-            Mapper.CreateMap<EmployeeProject, EmployeeProjectViewModel>();
+            Mapper.CreateMap<EmployeeProjectViewModel, EmployeeProject>();
             EmployeeProject employeeProject = Mapper.Map<EmployeeProjectViewModel, EmployeeProject>(emp);
             unit.EmployeeProjects.Create(employeeProject);
             unit.Save();
@@ -53,8 +53,12 @@ namespace HR_PortalWeb.Controllers
         [HttpPut]
         public void EditEmployeeProject(int id, [FromBody]EmployeeProjectViewModel emp)
         {
-            Mapper.CreateMap<EmployeeProject, EmployeeProjectViewModel>();
-            EmployeeProject employeeProject = Mapper.Map<EmployeeProjectViewModel, EmployeeProject>(emp);
+           
+            EmployeeProject employeeProject = unit.EmployeeProjects.Get(emp.Id);
+            employeeProject.Id = emp.Id;
+            employeeProject.Description = emp.Description;
+            employeeProject.PositionOnTheProject = emp.PositionOnTheProject;
+            
             unit.EmployeeProjects.Update(employeeProject);
             unit.Save();
         }

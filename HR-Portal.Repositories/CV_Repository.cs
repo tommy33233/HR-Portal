@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR_Portal.Repositories
+namespace HR_Portal.DataAccess
 {
    public class CV_Repository:IRepository<CV>
     {
