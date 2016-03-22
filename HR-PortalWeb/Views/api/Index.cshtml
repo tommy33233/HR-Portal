@@ -1,0 +1,74 @@
+﻿@using HR_Portal.ViewModels;
+@model IEnumerable<ProjectViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@section Scripts
+{
+    <script>
+        var model = {
+            reservations: ko.observableArray()
+        };
+
+        function sendAjaxRequest(httpMethod, callback, url) {
+            $.ajax("/api/web" + (url ? "/" + url : ""), {
+                type: httpMethod,
+                success: callback
+            });
+        }
+
+        function getAllItems() {
+            sendAjaxRequest("Get", function(data) {
+                model.reservations.removeAll();
+                for (var i = 0; i < data.length; i++) {
+                    model.GetAllProjects.reservations.push(data[i]);
+                }
+            });
+        }
+
+        function removeItem(item) {
+            sendAjaxRequest("DELETE", function() {
+                for (var i = 0; i < model.reservations().length; i++) {
+                    if (model.reservations()[i].Id == item.Id) {
+                        model.reservations.remove(model.reservations()[i]);
+                        break;
+                    }
+                }
+            }, item.ID);
+        }
+
+        $(document).ready(function() {
+            getAllItems();
+            ko.applyBindings(model);
+        });
+    </script>
+
+@section Body{
+<div id="summary" class="section panel panel-primary">
+    <div class="panel-heading"> Все </div>
+    <div class="panel-body">
+        <table class="table table-striped table-condensed">
+            <thead>
+            <tr><th>ID</th><th>Period</th><th>Amount</th><th>Position</th><th></th></tr>
+            </thead>
+            <tbody data-bind="foreach:model.reservations">
+            <tr>
+                <td data-bind="text:ID"></td>
+                <td data-bind="text:Period"></td>
+                <td data-bind="text:AmountOfMembersOfTheTeam"></td>
+                <td data-bind="text:Position"></td>
+                <td>
+                    <button class="btn btn-xs btn-primary" data-bind="click:removeItem">Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="editor" class="section panel panel-primary">
+    @Html.Partial("Editor", new ProjectViewModel())
+</div>
+    }
+}

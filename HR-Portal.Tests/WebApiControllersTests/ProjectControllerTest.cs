@@ -12,13 +12,13 @@ namespace HR_Portal.Tests.WebApiControllersTests
     public class ProjectControllerTest
     {
         private IUnitOfWork unit;
-        private ProjectController controller;
+        private ProjectApiController controller;
 
         [TestInitialize]
         public void SetupContext()
         {
             unit = new HR_PortalUnitOfWork();
-            controller = new ProjectController(unit);
+            controller = new ProjectApiController(unit);
         }
 
        

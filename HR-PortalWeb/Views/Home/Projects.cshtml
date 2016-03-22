@@ -1,0 +1,168 @@
+﻿
+@{
+    ViewBag.Title = "Projects";
+}
+
+<h2>Projects</h2>
+
+@using (Html.BeginForm())
+{
+    <button id="btnGetProjects">Get Projects</button> <br />
+    <button id="btnGetProject">Get Project</button> <input id="txtProjectID" type="text" value="1" /> <br />
+    <button id="btnAddProject">Add Project</button> <br />
+    <button id="btnUpdateProject">Update Project</button> <br />
+    <button id="btnDeleteProject">Delete Project</button> <input id="txtProjectIDToDelete" type="text" value="1" /> <br />
+    <div id="lblMessage"></div>
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        //GET all
+        $(function() {
+            $('#btnGetProjects').on("click", function() {
+                $.ajax({
+                        type: "GET",
+                        url: '/api/ProjectAPI',
+                        datatype: 'json',
+                        cache: false,
+                    })
+                    .success(function(data) {
+                        var Output = "";
+                        for (var i = 0; i < data.length; i++) {
+                            Output += "<hr />";
+                            Output += "<b>Project ID : </b>" + data[i].ID + "<br />";
+                            Output += "<b>Period : </b>" + data[i].Period + "<br />";
+                            Output += "<b>Team : </b>" + data[i].AmountOfMembersOfTheTeam;
+                        }
+                        $('#lblMessage').html(Output);
+                    })
+                    .error(function(xhr, ajaxOptions, thrownError) {
+                        $('#lblMessage').html("Error : An error occured");
+                    });
+                return false;
+            });
+            //GET by id
+            $('#btnGetProject').on("click", function() {
+                var ID = $("#txtProjectID").val();
+
+                $.ajax({
+                        type: "GET",
+                        url: '/api/ProjectAPI/' +Id,
+                        datatype: 'json',
+                        cache: false,
+                    })
+                    .success(function(data) {
+                        if (data != null) {
+                            var Output = "<hr />";
+                           // Output += "<b> ID : </b>" + data.Id + "<br />";
+                            Output += "<b>Period : </b>" + data.Period + "<br />";
+                            Output += "<b>TeamCount : </b>" + data.AmountOfMembersOfTheTeam;
+                            Output += "<b>Position : </b>" + data.Position;
+                            $('#lblMessage').html(Output);
+                        } else {
+                            $('#lblMessage').html("No records found.");
+                        }
+                    })
+                    .error(function(xhr, ajaxOptions, thrownError) {
+                        $('#lblMessage').html("Error : An error occured");
+                    });
+                return false;
+            });
+
+            //ADD project
+            $('#btnAddProject').on("click", function() {
+                //var Project = { Period: data.Period, AmountOfMembersOfTheTeam: data.AmountOfMembersOfTheTeam, Position: data.Position };
+                $.ajax({
+                        type: "POST",
+                        url: '/api/ProjectApi',
+                        data: Project,
+                        datatype: 'json',
+                        cache: false,
+                    })
+                    .success(function(data) {
+                        var Output = "<hr /><b>The new project is the following</b><br />";
+                        //Output += "<b> ID : </b>" + data.ID + "<br />";
+                        Output += "<b>Period : </b>" + data.Period + "<br />";
+                        Output += "<b>Team : </b>" + data.AmountOfMembersOfTheTeam + "<hr />";
+                        Output += "<b>position : </b>" + data.Position + "<hr />";
+                        $('#lblMessage').html(Output);
+                    })
+                    .error(function(xhr, ajaxOptions, thrownError) {
+                        $('#lblMessage').html("Error : An error occured");
+                    });
+                return false;
+            });
+
+            //UPDATE
+            $('#btnUpdateProject').on("click", function() {
+                var Student = { StudentID: 1, Name: 'Aris', Surname: 'Pitaridis' };
+                $.ajax({
+                        type: "PUT",
+                        url: '/api/StudentsAPI/1',
+                        data: Student,
+                        datatype: 'json',
+                        cache: false,
+                    })
+                    .success(function(data) {
+                        var Output = "<hr /><b>The updated successfully</b><br />";
+                        $('#lblMessage').html(Output);
+                    })
+                    .error(function(xhr, ajaxOptions, thrownError) {
+                        $('#lblMessage').html("Error : An error occured");
+                    });
+                return false;
+            });
+            $('#btnDeleteStudent').on("click", function() {
+                var StudentID = $("#txtStudentIDToDelete").val();
+
+                $.ajax({
+                        type: "DELETE",
+                        url: '/api/StudentsAPI/' + StudentID,
+                        datatype: 'json',
+                        cache: false,
+                    })
+                    .success(function(data) {
+                        if (data != null) {
+                            var Output = "<hr /><b>The student that deleted is the following</b><br />";
+                            Output += "<b>Student ID : </b>" + data.StudentID + "<br />";
+                            Output += "<b>Name : </b>" + data.Name + "<br />";
+                            Output += "<b>Surname : </b>" + data.Surname + "<hr />";
+                            $('#lblMessage').html(Output);
+                        } else {
+                            $('#lblMessage').html("No records found.");
+                        }
+                    })
+                    .error(function(xhr, ajaxOptions, thrownError) {
+                        $('#lblMessage').html("Error : An error occured");
+                    });
+                return false;
+            });
+
+            $(document).ajaxStart(function() {
+                $('#loading').show();
+            });
+            $(document).ajaxStop(function() {
+                $('#loading').hide();
+            });
+        });
+    </script>
+}
+<style type="text/css">
+    #loading {
+        display: none;
+        background-color: gray;
+        z-index: 999999;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        padding-top: 300px;
+        filter: alpha(opacity=75); /* internet explorer */
+        -khtml-opacity: 0.75; /* khtml, old safari */
+        -moz-opacity: 0.75; /* mozilla, netscape */
+        opacity: 0.75; /* fx, safari, opera */
+    }
+</style>
+<div id="loading"><img src="~/images/loader.gif" /></div>

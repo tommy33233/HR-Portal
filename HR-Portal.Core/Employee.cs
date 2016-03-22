@@ -28,7 +28,7 @@ namespace HR_Portal.Core
 
        public ICollection<Technology> Technologies { get; set; }
        public ICollection<EmployeeProject> EmployeeProjects { get; set; }
-        public ICollection<CV> Cvs { get; set; }
+       public ICollection<CV> Cvs { get; set; }
         
     }
 }
