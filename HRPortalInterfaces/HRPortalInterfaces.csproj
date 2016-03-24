@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{15A326FC-8C66-406E-BA5F-EA8C3C38DD9E}</ProjectGuid>
+    <ProjectGuid>{A607196E-F2C1-41AD-BF7E-EE67EE9FAD29}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Logger</RootNamespace>
-    <AssemblyName>Logger</AssemblyName>
+    <RootNamespace>HRPortalInterfaces</RootNamespace>
+    <AssemblyName>HRPortalInterfaces</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,15 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DebugLogger.cs" />
-    <Compile Include="EventLogLogger.cs" />
-    <Compile Include="FileSystemLogger.cs" />
+    <Compile Include="ILogger.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HRPortalInterfaces\HRPortalInterfaces.csproj">
-      <Project>{a607196e-f2c1-41ad-bf7e-ee67ee9fad29}</Project>
-      <Name>HRPortalInterfaces</Name>
+    <ProjectReference Include="..\HRPortal.Core\HRPortal.Core.csproj">
+      <Project>{da313295-e87a-4e5b-b895-b5c97e3fbb41}</Project>
+      <Name>HRPortal.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

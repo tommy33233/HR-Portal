@@ -71,13 +71,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HR-Portal.Repositories\HR-Portal.DataAccess.csproj">
+    <ProjectReference Include="..\HRPortal.Repositories\HRPortal.DataAccess.csproj">
       <Project>{047dfb11-5d01-4020-8f61-ad495d7f1c43}</Project>
-      <Name>HR-Portal.DataAccess</Name>
+      <Name>HRPortal.DataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HR-PortalInterfaces\HR-PortalInterfaces.csproj">
+    <ProjectReference Include="..\HRPortalInterfaces\HRPortalInterfaces.csproj">
       <Project>{a607196e-f2c1-41ad-bf7e-ee67ee9fad29}</Project>
-      <Name>HR-PortalInterfaces</Name>
+      <Name>HRPortalInterfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\Logger\Logger.csproj">
       <Project>{15a326fc-8c66-406e-ba5f-ea8c3c38dd9e}</Project>
